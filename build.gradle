@@ -1,12 +1,12 @@
 plugins {
     id 'java'
     id "io.freefair.lombok" version "8.2.2"
-    id 'org.jetbrains.kotlin.jvm'
 }
 
 group 'ru.netology'
 version '1.0-SNAPSHOT'
 
+sourceCompatibility = 11
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
@@ -21,13 +21,9 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
     testRuntimeOnly('org.slf4j:slf4j-simple:2.0.3')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
 test {
     useJUnitPlatform()
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
-}
-kotlin {
-    jvmToolchain(11)
 }
